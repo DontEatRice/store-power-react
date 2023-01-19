@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom"
+import { getAllStores } from "../apiCalls/storeApiCalls"
+import ListActions from "./fragments/ListActions"
 
 function StoreList() {
+    const stores = getAllStores()
     return (
         <main>
             <h2>Lista sklepów</h2>
@@ -14,44 +17,23 @@ function StoreList() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Żabka</td>
-                        <td>Warszaw</td>
-                        <td>al. Jana Pawła 2 21</td>
-                        <td>
-                            <ul className="list-actions">
-                                <li>
-                                    <Link to="/stores/details/1" className="list-actions-button-details">Szczegóły</Link>
-                                </li>
-                                <li>
-                                    <Link to="/stores/edit/1" className="list-actions-button-edit">Edytuj</Link>
-                                </li>
-                                <li>
-                                    <Link to="/stores/delete/1" className="list-actions-button-delete">Usuń</Link>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Biedronka</td>
-                        <td>Halinów</td>
-                        <td>Bema 3</td>
-                        <td>
-                            <ul className="list-actions">
-                                <li>
-                                    <Link to="/stores/details/1" className="list-actions-button-details">Szczegóły</Link>
-                                </li>
-                                <li>
-                                    <Link to="/stores/edit/1" className="list-actions-button-edit">Edytuj</Link>
-                                </li>
-                                <li>
-                                    <Link to="/stores/delete/1" className="list-actions-button-delete">Usuń</Link>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
+                    {
+                        stores.map(store => (
+                            <tr key={store.id}>
+                                <td>{store.name}</td>
+                                <td>{store.city}</td>
+                                <td>{store.street}</td>
+                                <td>
+                                    <ListActions id={store.id} />
+                                </td>
+                            </tr>
+                        ))
+                    }
                 </tbody>
             </table>
+            <p>
+                <Link to="./add" className="button-add">Dodaj nowy sklep</Link>
+            </p>
         </main>
     )
 }

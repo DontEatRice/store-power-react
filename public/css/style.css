@@ -237,10 +237,13 @@ input[type="submit"] {
     margin-bottom: 0.5em;
 }
 
-.symbol-required {
+.symbol-required, abbr[aria-label="required"] {
     color: red;
 }
 
+abbr[aria-label="required"] {
+    text-decoration: none;
+}
 .form-buttons {
     margin-top: 2rem;
     grid-column: 1 / span 2;
