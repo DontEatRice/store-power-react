@@ -29,6 +29,8 @@ function StoreList() {
         content = <p>{error}</p>
     } else if (!isLoaded) {
         content = <p>Ładowanie...</p>
+    } else if (stores.length === 0) {
+        content = <p>Brak sklepów.</p>
     } else {
         content = <StoreListTable stores={stores} />
     }

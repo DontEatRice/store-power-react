@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom"
-import { getPricebookById } from "../apiCalls/pricebookApiCalls"
-import { getFormattedDate } from "../helpers/utils"
+import { getPricebookById } from "../../apiCalls/pricebookApiCalls"
+import { getFormattedDate } from "../../helpers/utils"
 
 function StoreSection(props) {
     const store = props.store
