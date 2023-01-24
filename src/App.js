@@ -9,9 +9,9 @@ import PricebookDetails from "./components/PricebooksDetails";
 import ProductDetails from "./components/ProductDetails";
 import ProductForm from "./components/ProductForm";
 import ProductList from "./components/ProductList";
-import StoreDetails from "./components/StoreDetails";
-import StoreForm from "./components/StoreForm";
-import StoreList from "./components/StoreList";
+import StoreDetails from "./components/Store/StoreDetails";
+import StoreForm from "./components/Store/StoreForm";
+import StoreList from "./components/Store/StoreList";
 
 function App() {
   return (

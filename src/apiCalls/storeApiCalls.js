@@ -1,7 +1,8 @@
+import { BASE_API_URL } from "./constans";
 import { stores } from "./mockData";
 
 export function getAllStores() {
-    return stores
+    return fetch(BASE_API_URL + '/stores')
 }
 
 export function getStoreById(id) {

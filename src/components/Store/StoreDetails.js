@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { getStoreById } from "../apiCalls/storeApiCalls";
+import { getStoreById } from "../../apiCalls/storeApiCalls";
 
 function StoreDetails() {
     let { storeId } = useParams()
