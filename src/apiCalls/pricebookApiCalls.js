@@ -1,11 +1,9 @@
-import { BASE_API_URL } from "./constans"
-import { pricebooks } from "./mockData"
+import { BASE_API_URL } from "../helpers/constans"
 
 export function getAllPricebooks() {
     return fetch(`${BASE_API_URL}/pricebooks`)
 }
 
 export function getPricebookById(id) {
-    const store = pricebooks.find(pricebook => pricebook.id === id)
-    return store
+    return fetch(`${BASE_API_URL}/pricebooks/${id}`)
 }

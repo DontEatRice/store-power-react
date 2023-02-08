@@ -31,6 +31,8 @@ function PricebookList() {
         content = <p>Error: {JSON.stringify(error)}</p>
     } else if (!isLoaded) {
         content = <p>Loading...</p>
+    } else if (pricebooks && pricebooks.length === 0) {
+        content = <p>No pricebooks were found</p>
     } else {
         content = <PricebookListTable pricebooks={pricebooks} />
     }
