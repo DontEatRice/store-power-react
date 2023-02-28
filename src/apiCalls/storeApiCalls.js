@@ -1,3 +1,4 @@
+import { getCurrentUser } from "../helpers/authHelper";
 import { BASE_API_URL } from "../helpers/constans";
 
 export function getAllStores() {
@@ -9,10 +10,13 @@ export function getStoreById(id) {
 }
 
 export function addStore(store) {
+    const user = getCurrentUser()
+    let token = user?.token || ""
     return fetch(`${BASE_API_URL}/stores`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify(store)
     })

@@ -8,8 +8,14 @@ export const STORE_BLUEPRINT = Object.freeze({
     city: '',
     street: '',
     phoneNumber: '',
-    email: ''
+    email: '',
+    password: ''
 })
+export const USER_BLUEPRINT = Object.freeze({
+    email: '',
+    password: ''
+})
+
 export const LABELS = {
     no_value: <span style={{ color: 'GrayText' }}>--Brak wartości--</span>,
     required_field: 'Pole jest wymagane',

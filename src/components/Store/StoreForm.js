@@ -153,7 +153,8 @@ function StoreForm() {
                 <FormInput type="text" name="city" error={validationErrs["city"]} placeholder="Maks. 40 znaków" value={store.city} label="Miejscowość" handleChange={handleChange} required={true} />
                 <FormInput type="text" name="street" error={validationErrs["street"]} placeholder="np. Warszawska 9A/3" value={store.street} label="Ulica i numer/nr. mieszkania" handleChange={handleChange} required={true} />
                 <FormInput type="text" name="phoneNumber" error={validationErrs["phoneNumber"]} placeholder="np. 111222333" value={store.phoneNumber} label="Numer telefonu" handleChange={handleChange} />
-                <FormInput type="email" name="email" error={validationErrs["email"]} placeholder="np. kowalski@example.org" value={store.email} label="Email" handleChange={handleChange} />
+                <FormInput type="email" name="email" error={validationErrs["email"]} placeholder="np. kowalski@example.org" value={store.email} label="E-mail" handleChange={handleChange} />
+                <FormInput type="password" name="password" error={validationErrs["password"]} value={store.password} label="Hasło" handleChange={handleChange} />
 
                 <FormButtons cancelPath=".." formMode={currentFormMode} error={globalErrorMessage} />
             </form>
@@ -161,11 +162,8 @@ function StoreForm() {
     )
 }
 
-// TODO https://users.pja.edu.pl/~mdrabik/materials/tin/mp/mp3/docs/3_4_tutorial/index.html#451-formularz-nowegoedycji-pracownika-employeeform
-
-
-function validateField(fieldName, fieldValue,) {
-    const reqFields = ['name', 'city', 'street']
+function validateField(fieldName, fieldValue) {
+    const reqFields = ['name', 'city', 'street', 'password']
     let errorMessage = ''
     if (reqFields.includes(fieldName) && !checkRequired(fieldValue)) {
         return LABELS.required_field
@@ -194,6 +192,11 @@ function validateField(fieldName, fieldValue,) {
         case 'email':
             if (fieldValue && !checkEmail(fieldValue)) {
                 errorMessage = 'Nieprawidłowy adres e-mail'
+            }
+            break;
+        case 'password':
+            if (!checkTextLengthRange(fieldValue, 6, 42)) {
+                errorMessage = LABELS.text_range_err_msg(6, 42)
             }
             break;
         default:
