@@ -1,6 +1,6 @@
 # Store Power
 
-[Store Power](https://github.com/DontEatRice/store-power) rewritten using React
+Front-end part of [store Power](https://github.com/DontEatRice/store-power) rewritten using React
 
 ## Available Scripts
 
